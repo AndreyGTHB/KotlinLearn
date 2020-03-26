@@ -4,15 +4,9 @@ interface Employee {
     var salaryInDay: Int
     var moneyOnAcc: Int
 
-    open fun work(days: Int)
-    open fun withdrawMoney(moneys:Int = moneyOnAcc): Int {
-        if(moneyOnAcc >= moneys) {
-            moneyOnAcc -= moneys
-            return moneys
-        }
-        else {
-            var withdrawal: Int = moneys - moneyOnAcc
-            moneyOnAcc = 0; return withdrawal
-        }
+    fun work()
+    fun withdrawMoney(moneys: Int = moneyOnAcc): Int {
+        return if(moneyOnAcc >= moneys) { moneyOnAcc -= moneys; moneys                                 }
+               else                     { val withdrawal: Int = moneyOnAcc; moneyOnAcc = 0; withdrawal }
     }
 }

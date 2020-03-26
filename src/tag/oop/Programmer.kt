@@ -1,17 +1,19 @@
 package tag.oop
 
 class Programmer(name: String, age: Int, override var salaryInDay: Int, override var moneyOnAcc: Int = 0) : Person(name, age), Employee {
-    // Overriding interface Employee:
-    override fun work(days: Int) {
+    override fun work() {
         moneyOnAcc += salaryInDay
     }
-    @Synchronized override fun withdrawMoney(): Int {
-        return super.withdrawMoney()
+    fun work(days: Int) {
+        moneyOnAcc += salaryInDay * days
+    }
+    @Synchronized override fun withdrawMoney(moneys: Int): Int {
+        return super.withdrawMoney(moneys)
     }
 
     // Overriding class Person
     override fun greet(){
-        println("Hello! My name is $name. I am $age. I am a programmer and I earn $salaryInDay.")
+        println("Hello! My name is $name. I am $age. I am a programmer and I earn $salaryInDay dollars.")
     }
     override fun toString(): String {
         return "Worker(name: $name, age: $age, salaryInDay: $salaryInDay, moneyOnAcc: $moneyOnAcc)"
