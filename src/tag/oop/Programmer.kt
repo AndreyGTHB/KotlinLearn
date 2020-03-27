@@ -13,7 +13,7 @@ class Programmer(name: String, age: Int, override var salaryInDay: Int, override
 
     // Overriding class Person
     override fun greet(){
-        println("Hello! My name is $name. I am $age. I am a programmer and I earn $salaryInDay dollars.")
+        println("Hello! My name is $name. I am $age. I am a programmer and I earn ${salaryInDay*30} dollars.")
     }
     override fun toString(): String {
         return "Worker(name: $name, age: $age, salaryInDay: $salaryInDay, moneyOnAcc: $moneyOnAcc)"

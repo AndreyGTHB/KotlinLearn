@@ -1,7 +1,7 @@
 package tag.oop
 
 fun main() {
-    val p: Person = Person("Tom", 11)
+    val p = Person("Tom", 11)
 
     // Test 1
     println(p)
@@ -16,6 +16,8 @@ fun main() {
         p.age = -5
     }
     catch(ex: RuntimeException) {
-        println(ex.localizedMessage)
+        println("It is OK")
     }
+
+    println("The end")
 }
