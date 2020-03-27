@@ -1,4 +1,4 @@
-package tag.oop
+package tag.hello.oop
 
 open class Person(val name: String, age: Int) {
 

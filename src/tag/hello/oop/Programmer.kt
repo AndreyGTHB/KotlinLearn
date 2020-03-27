@@ -1,4 +1,7 @@
-package tag.oop
+package tag.hello.oop
+
+import tag.hello.oop.Employee
+import tag.hello.oop.Person
 
 class Programmer(name: String, age: Int, override var salaryInDay: Int, override var moneyOnAcc: Int = 0) : Person(name, age), Employee {
     override fun work() {

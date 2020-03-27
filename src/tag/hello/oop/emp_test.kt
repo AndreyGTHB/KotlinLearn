@@ -1,4 +1,4 @@
-package tag.oop
+package tag.hello.oop
 
 fun main() {
     val person = Programmer("Larry", 32, 40)

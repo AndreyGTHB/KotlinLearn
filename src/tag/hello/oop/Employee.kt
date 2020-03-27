@@ -1,4 +1,4 @@
-package tag.oop
+package tag.hello.oop
 
 interface Employee {
     var salaryInDay: Int
