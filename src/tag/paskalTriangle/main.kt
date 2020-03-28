@@ -3,6 +3,7 @@ package tag.paskalTriangle
 
 fun main() {
     pascalTriangle(4)
+    
 }
 
 
