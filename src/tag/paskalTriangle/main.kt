@@ -2,28 +2,32 @@ package tag.paskalTriangle
 
 
 fun main() {
-    pascalTriangle(4)
+    pascalTriangle(7)
     
 }
 
 
 fun pascalTriangle(rows: Int) {
-    var valueArr: Array<Array<Int>> = emptyArray<Array<Int>>()
-    var arrOfStr: Array<Int> = emptyArray()
+    if (rows <= 0) return
+
+    val triangle: Array<Array<Int>> = Array(rows) { Array(rows + 1) { 0 } }
+    triangle[0][1] = 1
+    var newLine: Array<Int>
+
     var value: Int
+    for(line in 0 until rows) {
+        if(line == 0) {println(triangle[0][1]); continue}
 
-    for(i in 0 until rows) {
-        valueArr.plus(emptyArray<Int>())
-        for(el in 0 until i) {
-            value = 1
-
-            value += try                                       { valueArr[i-1][el-1] }
-                     catch(ex: ArrayIndexOutOfBoundsException) { 0                   }
-            value += try                                       { valueArr[i-1][el] }
-                     catch(ex: ArrayIndexOutOfBoundsException) { 0                 }
-
-            valueArr[i].plus(value)
-            print(value)
+        newLine = triangle[line]
+        for(el in 0..line) {
+            value = 0
+            value += triangle[line - 1][el] + triangle[line - 1][el + 1]
+            newLine[el + 1] = value
+            print("$value")
+            if(el != line) print('.')
         }
+
+        triangle[line] = newLine
+        println()
     }
 }
