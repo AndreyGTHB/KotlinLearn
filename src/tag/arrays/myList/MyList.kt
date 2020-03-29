@@ -13,4 +13,13 @@ data class MyList<T> (var value: T) {
         for(iEl in 0..index) if(iEl != 0) el = el.next!!
         return el.value
     }
+    fun remove(i: Int) {
+        var index: Int = i
+        if(i > 0) index -= 1
+
+        var el: MyList<T>? = this
+        for(iEl in 0..index) if(iEl != 0) el = el!!.next
+
+        el!!.next = el.next!!.next
+    }
 }
