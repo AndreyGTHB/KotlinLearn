@@ -13,7 +13,7 @@ data class MyList<T> (var value: T) {
         for(iEl in 0..index) if(iEl != 0) el = el.next!!
         return el.value
     }
-    fun remove(i: Int) {
+    fun remove(i: Int): MyList<T>? {
         var index: Int = i
         if(i > 0) index -= 1
 
@@ -21,5 +21,22 @@ data class MyList<T> (var value: T) {
         for(iEl in 0..index) if(iEl != 0) el = el!!.next
 
         el!!.next = el.next!!.next
+        return el!!.next
+    }
+    fun removes(v: T): Array<Int> {
+        var el: MyList<T>? = this
+        var indices: Array<Int> = emptyArray()
+
+        var i: Int = 0
+        while(el!!.next != null) {
+            el = el.next
+            if(el!!.value == v) {
+                indices += i
+                remove(i)
+            }
+            i ++
+        }
+
+        return indices
     }
 }
