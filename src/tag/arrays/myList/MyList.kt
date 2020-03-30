@@ -1,11 +1,22 @@
 package tag.arrays.myList
 
-data class MyList<T> (var value: T) {
-    var next: MyList<T>? = null
+data class MyList<T> (private var value: T) {
+    private var next: MyList<T>? = null
+	
+	val size: Int
+		get() {
+		var siz: Int = 1
+		var el: MyList<T> = this
+			while(el.next != null) {
+				siz += 1
+				el = el.next!!
+			}
+			return siz
+		}
 
     fun add(v: T) {
         var el: MyList<T>? = this
-        while(el!!.next != null) el = el!!.next
+        while(el!!.next != null) el = el.next
         el.next = MyList<T>(v)
     }
     fun get(index: Int): T {
