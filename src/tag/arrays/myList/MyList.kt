@@ -1,7 +1,18 @@
 package tag.arrays.myList
 
-data class MyList<T> (var value: T) {
-    var next: MyList<T>? = null
+data class MyList<T> (private var value: T) {
+    private var next: MyList<T>? = null
+	
+	val size: Int
+		get() {
+			var el: MyList<T> = this
+			var siz: Int = 0
+			while(el.next != null) {
+				siz ++
+				el = el.next
+			}
+			return siz
+		}
 
     fun add(v: T) {
         var el: MyList<T>? = this
@@ -23,20 +34,24 @@ data class MyList<T> (var value: T) {
         el!!.next = el.next!!.next
         return el!!.next
     }
-    fun removes(v: T): Array<Int> {
+    fun removes(v: T): Int {
         var el: MyList<T>? = this
-        var indices: Array<Int> = emptyArray()
+        var values: Int = 0
 
         var i: Int = 0
         while(el!!.next != null) {
             el = el.next
             if(el!!.value == v) {
-                indices += i
+                values ++
                 remove(i)
             }
             i ++
         }
 
-        return indices
+        return values
     }
+	
+	protected fun checkHard(operations: Int, iterations: Int) {
+		return operations * iterations + 2
+	}
 }
