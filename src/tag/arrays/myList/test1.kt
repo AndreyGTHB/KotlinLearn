@@ -5,4 +5,5 @@ fun main() {
     for(str in arrayOf("second", "third", "fourth"))  list.add(str)
 
     list.println()
+    println(list)
 }

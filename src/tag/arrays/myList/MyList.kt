@@ -68,6 +68,23 @@ data class MyList<T> (private var value: T) {
             el = el.next
         }
     }
+
+
+    override fun toString(): String {
+        var str: String = "["
+
+        var el: MyList<T>? = this
+        val s: Int = size
+        for(i in 0 until s) {
+            str += if(i < s-1) { el!!.value.toString() + ", " }
+                   else        { el!!.value.toString() }
+
+            el = el!!.next
+        }
+
+        str += "]"
+        return str
+    }
 }
 
 

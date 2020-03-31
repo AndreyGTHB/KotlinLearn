@@ -37,7 +37,6 @@ fun main() {
         val values: Int = list.removes("rep")
         if(values == 4 && list.size == 5) println("Test 4 completed")
         else                  println("Test 4 failed (Wrong output data)")
-        println(values)
     }
     catch(ex: Exception) {ex.printStackTrace()}
 	
@@ -52,6 +51,14 @@ fun main() {
         else println("Test 5 failed (wrong output data)")
 	}
 	catch(ex: Exception) { println("Test 5 failed (exception)") }
+
+    // Test 6(set)
+    try {
+        list.set(0, "changed")
+        if(list.get(0) == "changed" && list.size == 5) println("Test 6 completed")
+        else                                           println("Test 6 failed (wrong output data)")
+    }
+    catch(ex: Exception) {ex.printStackTrace()}
 
 }
 
