@@ -32,13 +32,14 @@ fun main() {
     // Test 4(removes)
     try {
         // Some acts...
-        for(el in arrayOf("rep", "not rep", "rep", "rep", "not rep too", "not rep early"))     list.add(el)
+        for(el in arrayOf("rep", "not rep", "rep", "rep", "rep", "not rep too", "not rep early"))     list.add(el)
 
         val values: Int = list.removes("rep")
-        if(values == 3) println("Test 4 completed")
+        if(values == 4 && list.size == 5) println("Test 4 completed")
         else                  println("Test 4 failed (Wrong output data)")
+        println(values)
     }
-    catch(ex: Exception) {println("Test 4 failed (throed exception)")}
+    catch(ex: Exception) {ex.printStackTrace()}
 	
 	// Test 5(size)
 	try {
@@ -47,7 +48,7 @@ fun main() {
 		list2.add("new second")
 		val secondSize: Int = list2.size // 2
 		
-		if(firstSize == 5 && secondSize == 6) println("Test 5 completed")
+		if(firstSize == 1 && secondSize == 2) println("Test 5 completed")
         else println("Test 5 failed (wrong output data)")
 	}
 	catch(ex: Exception) { println("Test 5 failed (exception)") }

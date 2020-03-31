@@ -30,20 +30,22 @@ data class MyList<T> (private var value: T) {
 
         val lastValue: T = el!!.value
         el.next = el.next!!.next
+
         return lastValue
     }
     fun removes(v: T): Int {
         var el: MyList<T> = this
         var values: Int = 0
 
-        var i: Int = 0
-        while(el.next != null) {
+        var index: Int = 0
+        for(i in 0 until size) {
             if(el.value == v) {
-                values += i
-                remove(i)
+                values ++
+                remove(index)
+                index --
             }
-            el = el.next!!
-            i ++
+            if(index < size-1)   el = el.next!!
+            index ++
         }
 
         return values
@@ -56,6 +58,15 @@ data class MyList<T> (private var value: T) {
         val lastValue: T = el.value
         el.value = value
         return lastValue
+    }
+
+    fun println() {
+        var el: MyList<T>? =  this
+        for(i in 0 until size) {
+            println(el!!.value)
+
+            el = el.next
+        }
     }
 }
 
