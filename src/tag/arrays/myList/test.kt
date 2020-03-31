@@ -34,8 +34,8 @@ fun main() {
         // Some acts...
         for(el in arrayOf("rep", "not rep", "rep", "rep", "not rep too", "not rep early"))     list.add(el)
 
-        val indices: Array<Int> = list.removes("rep")
-        if(indices.size == 3 && list.get(2) == "not rep") println("Test 4 completed")
+        val values: Int = list.removes("rep")
+        if(values == 3) println("Test 4 completed")
         else                  println("Test 4 failed (Wrong output data)")
     }
     catch(ex: Exception) {println("Test 4 failed (throed exception)")}
@@ -43,13 +43,12 @@ fun main() {
 	// Test 5(size)
 	try {
         val list2 = MyList<String>("sa")
-		val firstSize: Int = list2.size // 5
-		list2.add("sixth")
-		val secondSize: Int = list2.size // 6
+		val firstSize: Int = list2.size // 1
+		list2.add("new second")
+		val secondSize: Int = list2.size // 2
 		
-//		if(firstSize == 5 && secondSize == 6) println("Test 5 completed")
-//		else println("Test 5 failed (wrong output data)")
-        println("first: $firstSize second: $secondSize")
+		if(firstSize == 5 && secondSize == 6) println("Test 5 completed")
+        else println("Test 5 failed (wrong output data)")
 	}
 	catch(ex: Exception) { println("Test 5 failed (exception)") }
 

@@ -1,6 +1,5 @@
 package tag.encodeString
 
-import sun.font.TrueTypeFont
 
 fun encodeString(inputString: String): String {
     var symbols: Int = 1
@@ -15,7 +14,7 @@ fun encodeString(inputString: String): String {
 
         if(inputString[iSym].toString() == previousSymbol) symbols += 1
         else {
-            newString += symbols.toString() + inputString[iSym].toString()
+            newString += symbols.toString() + inputString[iSym]
             previousSymbol = inputString[iSym].toString()
             symbols = 1
         }
