@@ -1,8 +1,8 @@
 package tag.arrays.myList
 
-data class MyList<T> (private var value: T) {
+data class MyList<T : Any> (private var value: T) {
     private var next: MyList<T>? = null
-	
+
 	val size: Int
 		get() {
 		var siz: Int = 1
@@ -11,7 +11,7 @@ data class MyList<T> (private var value: T) {
 				siz += 1
 				el = el.next!!
 			}
-			return siz
+			return siz              
 		}
 
     fun add(v: T) {
@@ -19,11 +19,13 @@ data class MyList<T> (private var value: T) {
         while(el.next != null) el = el.next!!
         el.next = MyList<T>(v)
     }
-    fun get(index: Int): T {
+
+    operator fun get(index: Int): T {
         var el: MyList<T> = this
         for(iEl in 0..index) if(iEl != 0) el = el.next!!
         return el.value
     }
+
     fun remove(i: Int): T {
         var el: MyList<T>? = this
         for(iEl in 0 until i)  if(iEl != 0) el = el!!.next
@@ -51,7 +53,7 @@ data class MyList<T> (private var value: T) {
         return values
     }
 
-    fun set(i: Int, value: T): T {
+    operator fun set(i: Int, value: T): T {
         var el: MyList<T> = this
         for(iEl in 0..i) if(iEl != 0) el = el.next!!
 
@@ -60,13 +62,16 @@ data class MyList<T> (private var value: T) {
         return lastValue
     }
 
-    fun println() {
-        var el: MyList<T>? =  this
-        for(i in 0 until size) {
-            println(el!!.value)
-
+    fun forEach(consumer: (T) -> Unit) {
+        var el: MyList<T>? = this
+        while( el != null ) {
+            consumer( el.value )
             el = el.next
         }
+    }
+
+    fun println() {
+        forEach { println(it) }
     }
 
 

@@ -14,8 +14,8 @@ fun main() {
 
     // Test 2(get)
     try {
-        val zeroEl: String = list.get(0) // first
-        val firstEl: String = list.get(1) // second
+        val zeroEl: String = list[0] // first
+        val firstEl: String = list[1] // second
         if(zeroEl == "first" && firstEl == "second") println("Test 2 completed")
         else println("Test 2 failed")
     }
@@ -54,7 +54,7 @@ fun main() {
 
     // Test 6(set)
     try {
-        list.set(0, "changed")
+        list[0] = "changed"
         if(list.get(0) == "changed" && list.size == 5) println("Test 6 completed")
         else                                           println("Test 6 failed (wrong output data)")
     }
