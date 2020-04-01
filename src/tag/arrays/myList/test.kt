@@ -55,10 +55,25 @@ fun main() {
     // Test 6(set)
     try {
         list[0] = "changed"
-        if(list.get(0) == "changed" && list.size == 5) println("Test 6 completed")
+        if(list[0] == "changed" && list.size == 5) println("Test 6 completed")
         else                                           println("Test 6 failed (wrong output data)")
     }
     catch(ex: Exception) {ex.printStackTrace()}
+
+    // Test 7(forEach)
+    try {
+        var list3: MyList<Boolean> = MyList(true)
+        for(el in arrayOf(false, false, true, false, true, true, false)) list3.add(el)
+
+        var trues: Int = 0
+        list3.forEach {
+            if(it)  trues ++
+        }
+
+        if(trues == 4) println("Test 7 completed")
+        else           println("Test 7 failed(wrong output data)")
+    }
+    catch(ex: Exception) { println("Test 7 failed(exception)") }
 
 }
 
