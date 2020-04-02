@@ -5,7 +5,7 @@ data class MyList<T : Any> (private var value: T) {
 
 	val size: Int
 		get() {
-		var siz: Int = 1
+		var siz = 1
 		var el: MyList<T> = this
 			while(el.next != null) {
 				siz += 1
@@ -37,9 +37,9 @@ data class MyList<T : Any> (private var value: T) {
     }
     fun removes(v: T): Int {
         var el: MyList<T> = this
-        var values: Int = 0
+        var values = 0
 
-        var index: Int = 0
+        var index = 0
         for(i in 0 until size) {
             if(el.value == v) {
                 values ++
@@ -53,12 +53,12 @@ data class MyList<T : Any> (private var value: T) {
         return values
     }
 
-    operator fun set(i: Int, value: T): T {
+    operator fun set(i: Int, v: T): T {
         var el: MyList<T> = this
         for(iEl in 0..i) if(iEl != 0) el = el.next!!
 
         val lastValue: T = el.value
-        el.value = value
+        el.value = v
         return lastValue
     }
 
@@ -76,7 +76,7 @@ data class MyList<T : Any> (private var value: T) {
 
 
     override fun toString(): String {
-        var str: String = "["
+        var str = "["
 
         var el: MyList<T>? = this
         val s: Int = size
@@ -84,7 +84,7 @@ data class MyList<T : Any> (private var value: T) {
             str += if(i < s-1) { el!!.value.toString() + ", " }
                    else        { el!!.value.toString() }
 
-            el = el!!.next
+            el = el.next
         }
 
         str += "]"

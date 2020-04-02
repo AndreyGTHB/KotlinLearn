@@ -62,10 +62,10 @@ fun main() {
 
     // Test 7(forEach)
     try {
-        var list3: MyList<Boolean> = MyList(true)
+        val list3: MyList<Boolean> = MyList(true)
         for(el in arrayOf(false, false, true, false, true, true, false)) list3.add(el)
 
-        var trues: Int = 0
+        var trues = 0
         list3.forEach {
             if(it)  trues ++
         }
@@ -74,6 +74,17 @@ fun main() {
         else           println("Test 7 failed(wrong output data)")
     }
     catch(ex: Exception) { println("Test 7 failed(exception)") }
+
+    // Test 8(toString)
+    try    {
+        val list4 = MyList<Any>("str")
+
+        for(el in arrayOf("str 2", false, 56, 1.2F, 1.496)) list4.add(el)
+        print(list4)
+        if (list4.toString() == "[str, str 2, false, 56, 1.2, 1.496]") println("Test 8 completed")
+        else                                                          println("Test 8 failed(wrong output data)")
+    }
+    catch(ex: Exception)    { println("Test 8 failed(exception)") }
 
 }
 
