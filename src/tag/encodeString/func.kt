@@ -2,9 +2,9 @@ package tag.encodeString
 
 
 fun encodeString(inputString: String): String {
-    var symbols: Int = 1
-    var previousSymbol: String = "awb90"
-    var newString: String = ""
+    var symbols = 1
+    var previousSymbol = "awb90"
+    var newString = ""
     for(iSym in inputString.indices) {
         if (iSym == 0) {
             newString = inputString[iSym].toString()
